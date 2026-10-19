@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>The Homelab: A Nerd's Journey</title>
+  <meta name="description" content="Slides and resources from Zan's talk: turning a basement into an enterprise network, breaking it, and using the wreckage to land a cybersecurity career.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="toolbar" aria-label="Page controls">
+  <button type="button" id="btn-present" title="Present (P)">▶ Present</button>
+  <button type="button" id="btn-theme" title="Toggle light/dark (T)">◐ Theme</button>
+</nav>
+
+<main class="deck">
+
+  <!-- 1 ─ Title -->
+  <section class="title-slide">
+    <p class="kicker">$ ./homelab --why --how</p>
+    <h1>The Homelab:<br><span class="accent">A Nerd's Journey</span></h1>
+    <p class="lead">Build something real, break it, and be honest about both.</p>
+    <p class="byline">Zan · Instructor, Cybersecurity &amp; Network Infrastructure, MCTC</p>
+    <p class="muted">SecureWV · 10/22/26 · KevinSays</p>
+    <aside class="notes">Welcome. Mention the QR code at the end — slides and every link are on this page, no need to take photos.</aside>
+  </section>
+
+  <!-- 2 ─ whoami -->
+  <section>
+    <h2><span class="prompt">$</span> whoami</h2>
+    <ul>
+      <li>A decade as a <strong>Certified Nursing Assistant</strong> on a back-and-spine surgical recovery and med-surg floor</li>
+      <li>Made the jump to cyber in <strong>fall 2025</strong></li>
+      <li>Now an <strong>Instructor, Cybersecurity &amp; Network Infrastructure</strong> at MCTC</li>
+      <li>Runs a <strong>two-node homelab</strong> that has been broken in almost every way a homelab can be broken</li>
+      <li>Started <em>"talking again"</em> to the wife about writing a book about it all</li>
+    </ul>
+    <aside class="notes">Keep this to 30 seconds. The CNA background gets its own slide next.</aside>
+  </section>
+
+  <!-- 2b ─ CNA to cyber -->
+  <section>
+    <h2>Hospital floor → security</h2>
+    <p class="lead">Turns out a med-surg floor is excellent preparation for cybersecurity.</p>
+    <div class="cards">
+      <div class="card"><h3>Stay calm</h3><p>Something is actively going wrong. Panicking doesn't fix it.</p></div>
+      <div class="card"><h3>Triage fast</h3><p>What's most urgent? What can wait? Decide, then act.</p></div>
+      <div class="card"><h3>Document everything</h3><p>Nobody trusts your memory at 3 AM, including you.</p></div>
+    </div>
+    <aside class="notes">Career-changers in the room: your old job probably taught you more of this than you think.</aside>
+  </section>
+
+  <!-- 3 ─ What is a homelab -->
+  <section>
+    <h2>What is a homelab?</h2>
+    <p class="lead">A place you own where you're allowed to break things.</p>
+    <ul>
+      <li>Hardware, VMs, or containers you control end to end</li>
+      <li>Could be one old laptop, a mini PC, or a full rack</li>
+      <li>Production-like enough to learn from, low-stakes enough to wreck</li>
+    </ul>
+    <aside class="notes">Size doesn't matter. The point is ownership: no change tickets, no one else's data.</aside>
+  </section>
+
+  <!-- 4 ─ Why -->
+  <section>
+    <h2>Why every security person needs one</h2>
+    <div class="cards">
+      <div class="card"><h3>Learn by breaking</h3><p>Attack, defend, misconfigure, recover. Theory sticks when you've seen it fail.</p></div>
+      <div class="card"><h3>Skills beyond certs</h3><p>Networking, Linux, AD, logging: the stuff every security job assumes you know.</p></div>
+      <div class="card"><h3>Proof of work</h3><p>"I built a detection lab and here's my write-up" beats a bullet point on a CV.</p></div>
+      <div class="card"><h3>Safe sandbox</h3><p>Test exploits, tooling, and malware somewhere that isn't your employer's network.</p></div>
+    </div>
+    <p class="lead small">Told to "just get certified"? Certs prove you studied. A lab proves you can do it. <strong>This is the other half.</strong></p>
+    <aside class="notes">This is the thesis slide. Land it.</aside>
+  </section>
+
+  <!-- 5 ─ Journey -->
+  <section>
+    <h2>My journey</h2>
+    <ol class="timeline">
+      <li><span class="when">~10 yrs</span><span class="what">CNA on a surgical recovery and med-surg floor</span></li>
+      <li><span class="when">2020</span><span class="what">Met my wife: <em>"Stop talking about things and just do them."</em> The homelab starts</span></li>
+      <li><span class="when">2022</span><span class="what">First house. Claimed a 5'×5' basement corner before the kids could, and it became the "Enterprise Network"</span></li>
+      <li><span class="when">Fall 2025</span><span class="what">Made the jump into cybersecurity</span></li>
+      <li><span class="when">Today</span><span class="what">Teaching at MCTC, running a two-node lab, and "talking" to my wife about writing a book</span></li>
+    </ol>
+    <aside class="notes">The heart of the talk. Tell stories; the failures are the best bits. The 2020 quote is the whole talk in one line: stop talking, start building.</aside>
+  </section>
+
+  <!-- 6b ─ Photos: then and now -->
+  <section>
+    <h2>Then → now</h2>
+    <div class="photos two">
+      <figure class="photo">
+        <img src="photos/then.jpg" alt="TODO: describe the first lab setup" width="1600" height="1200">
+        <span class="ph">📷 photos/then.jpg</span>
+        <figcaption>2020: where it started</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="photos/now.jpg" alt="TODO: describe the lab today" width="1600" height="1200">
+        <span class="ph">📷 photos/now.jpg</span>
+        <figcaption>Today: the 5'×5' basement corner</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 6 ─ My current lab -->
+  <section>
+    <h2>The basement "enterprise"</h2>
+    <p class="muted">25 square feet, claimed in 2022 before the kids could.</p>
+    <div class="cards">
+      <div class="card"><h3>Compute</h3><p>Two-node Proxmox VE cluster: <strong>NovaCore</strong> (Dell R720) and <strong>GladOS</strong> (Dell R520), plus two ZimaBoards for always-on services</p></div>
+      <div class="card"><h3>Network</h3><p>MikroTik RB5009 router, CRS310 10G switch, hAP ax3 Wi-Fi 6. Seven VLANs: Trusted, IoT, Guest, Servers, Kids, Lab, Mgmt</p></div>
+      <div class="card"><h3>Storage</h3><p>7.28 TiB hardware RAID5 on a Dell PERC 6/i, shared out as Proxmox storage</p></div>
+      <div class="card"><h3>Running</h3><p>Wazuh SIEM, pfSense lab firewall, NetBox, Jellyfin behind Caddy, a Meshtastic mesh, game servers. Remote access over a NetBird mesh</p></div>
+    </div>
+  </section>
+
+  <!-- 7b ─ Photos: the hardware -->
+  <section>
+    <h2>Meet the hardware</h2>
+    <div class="photos">
+      <figure class="photo">
+        <img src="photos/node1.jpg" alt="TODO: describe node 1" width="1600" height="1200">
+        <span class="ph">📷 photos/node1.jpg</span>
+        <figcaption>NovaCore: Dell R720</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="photos/node2.jpg" alt="TODO: describe node 2" width="1600" height="1200">
+        <span class="ph">📷 photos/node2.jpg</span>
+        <figcaption>GladOS: Dell R520</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="photos/network.jpg" alt="TODO: describe the network gear" width="1600" height="1200">
+        <span class="ph">📷 photos/network.jpg</span>
+        <figcaption>MikroTik RB5009 + CRS310 + hAP ax3</figcaption>
+      </figure>
+    </div>
+    <aside class="notes">Let the photos breathe. Point at things.</aside>
+  </section>
+
+  <!-- 7 ─ Start cheap -->
+  <section>
+    <h2>You don't need a rack</h2>
+    <div class="cards">
+      <div class="card"><h3 class="tier">£$€ 0</h3><p>VirtualBox or Hyper-V on the PC you already own. An old laptop is a perfectly good server.</p></div>
+      <div class="card"><h3 class="tier">~ 100–250</h3><p>A used mini PC (business desktops are cheap off-lease) or a Raspberry Pi. Quiet, low power.</p></div>
+      <div class="card"><h3 class="tier">Later, maybe</h3><p>Used enterprise servers: lots of cores and RAM, but loud, hot, and hard on the power bill.</p></div>
+    </div>
+    <p class="lead small">Start with what you have. Buy hardware when you hit a real limit.</p>
+    <aside class="notes">RAM is usually the first wall you hit, not CPU.</aside>
+  </section>
+
+  <!-- 8 ─ Hypervisors -->
+  <section>
+    <h2>Pick a hypervisor</h2>
+    <ul>
+      <li><strong>Proxmox VE</strong>: free, open source, VMs + LXC containers, the community default</li>
+      <li><strong>XCP-ng</strong>: open-source Xen platform, good if you want something different</li>
+      <li><strong>Hyper-V</strong>: built into Windows Pro; handy for AD labs</li>
+      <li><strong>VirtualBox / VMware Workstation</strong>: fine on a laptop to get started</li>
+      <li><strong>Docker</strong>: for services; complements a hypervisor rather than replacing it</li>
+    </ul>
+    <p class="muted small">ESXi licensing has changed a lot recently, so check current terms before you build on it.</p>
+  </section>
+
+  <!-- 9 ─ Network -->
+  <section>
+    <h2>Segment it like you mean it</h2>
+    <ul>
+      <li>Put the lab on its own <strong>VLAN / subnet</strong>, away from family devices</li>
+      <li>Run a real firewall: <strong>OPNsense</strong> or <strong>pfSense</strong> (works fine as a VM)</li>
+      <li>Default-deny between segments, then allow what you need</li>
+      <li><strong>Don't port-forward</strong> lab services. Get in remotely with <strong>WireGuard</strong> or <strong>Tailscale</strong></li>
+      <li>Give attack and malware labs a network with <strong>no route out</strong></li>
+    </ul>
+    <aside class="notes">Designing the network is half the learning. Firewall rules teach you more than any course.</aside>
+  </section>
+
+  <!-- 10 ─ Security labs -->
+  <section>
+    <h2>Labs worth building</h2>
+    <div class="cards">
+      <div class="card"><h3>Active Directory</h3><p>Build a domain, then attack it. GOAD (Game of Active Directory) automates a vulnerable forest.</p></div>
+      <div class="card"><h3>Detection / SIEM</h3><p>Wazuh, Security Onion, or the Elastic stack. Attack your own boxes and see what it catches.</p></div>
+      <div class="card"><h3>Vulnerable targets</h3><p>Metasploitable, DVWA, and VulnHub images for practising offence locally.</p></div>
+      <div class="card"><h3>Malware analysis</h3><p>FLARE-VM + REMnux on an isolated network. Snapshot first, every time.</p></div>
+    </div>
+    <aside class="notes">Red and blue in the same lab is the sweet spot: attack, then go and find yourself in the logs.</aside>
+  </section>
+
+  <!-- 11 ─ Self-hosting -->
+  <section>
+    <h2>Self-hosting that teaches</h2>
+    <ul>
+      <li><strong>DNS</strong>: Pi-hole or AdGuard Home, so you finally understand DNS</li>
+      <li><strong>Reverse proxy + TLS</strong>: Caddy, Traefik, or nginx with your own internal CA</li>
+      <li><strong>Monitoring</strong>: Prometheus + Grafana, Uptime Kuma</li>
+      <li><strong>Identity</strong>: SSO with Authentik or Keycloak</li>
+      <li><strong>Backups</strong>: Proxmox Backup Server, restic. Test your restores!</li>
+    </ul>
+    <aside class="notes">Every service you host is attack surface you own. That's the lesson.</aside>
+  </section>
+
+  <!-- 12a ─ 2 AM disasters -->
+  <section>
+    <h2>The 2 AM disasters</h2>
+    <div class="cards">
+      <div class="card"><h3>Bedtime didn't work</h3><p>The Kids VLAN cut off at 7 PM, but the kids were still online. Hardware FastTrack meant connections opened before the cutoff were never re-checked. Fix: exclude that VLAN from FastTrack.</p></div>
+      <div class="card"><h3>The bug from day one</h3><p>One typo: <code>192.168.0.0/8</code>. The router quietly turned it into <code>192.0.0.0/8</code>. I'd looked right at it once and called it fine. A full config audit finally caught it.</p></div>
+      <div class="card"><h3>"Incorrect password" everywhere</h3><p>New devices couldn't join any Wi-Fi. Root cause: me. I'd changed the guest passphrase live and never wrote it down, and the MAC allowlist was rejecting phones' new private addresses.</p></div>
+    </div>
+    <aside class="notes">Tell these like patient handoffs: what happened, what you did, what changed afterwards. Running theme: the network was doing exactly what I told it to.</aside>
+  </section>
+
+  <!-- 12a2 ─ Photo: scene of the crime -->
+  <section>
+    <h2>The scene of the crime</h2>
+    <figure class="photo hero">
+      <img src="photos/disaster.jpg" alt="TODO: describe the disaster photo" width="1600" height="900">
+      <span class="ph">📷 photos/disaster.jpg</span>
+      <figcaption><span class="todo">TODO: What went wrong here</span></figcaption>
+    </figure>
+    <aside class="notes">A photo of the mess (cable spaghetti, dead drive, blinking amber light) lands better than any description.</aside>
+  </section>
+
+  <!-- 12b ─ Disaster to resume bullet -->
+  <section>
+    <h2>"I fixed this at midnight" → hired</h2>
+    <ol class="steps">
+      <li><strong>Write it down</strong> while it's happening: symptoms, what you tried, timestamps</li>
+      <li><strong>Find the root cause</strong>, not just the fix</li>
+      <li><strong>Change something</strong> so it can't happen the same way again</li>
+      <li><strong>Turn it into one line:</strong> action verb + what you did + measurable result</li>
+    </ol>
+    <p class="card small"><strong>Template:</strong> "Diagnosed and restored [service] after [failure]; prevented recurrence by [change]."</p>
+    <p class="card small"><strong>Real example:</strong> "Audited live router, switch and AP configs against version-controlled baselines; found and fixed five latent issues, including a firewall mask error present since deployment and an orphaned VPN endpoint with a plaintext credential."</p>
+    <aside class="notes">This is the promise in the abstract. Show the real before/after if you can.</aside>
+  </section>
+
+  <!-- 12 ─ Lessons -->
+  <section>
+    <h2>Lessons learned the hard way</h2>
+    <ul>
+      <li>Your notes drift from reality. Audit the <em>live</em> config against them, regularly</li>
+      <li>An old, forgotten rule can silently override the new one you just wrote</li>
+      <li>Use Safe Mode (or a rollback timer) for remote firewall changes</li>
+      <li>Document everything. Future you has no idea what past you did</li>
+      <li>Snapshot before every change</li>
+      <li>3-2-1 backups: 3 copies, 2 media, 1 off-site</li>
+      <li>Watch the power bill. That free server isn't free</li>
+    </ul>
+  </section>
+
+  <!-- 13 ─ Hygiene -->
+  <section>
+    <h2>Don't become the incident</h2>
+    <ul>
+      <li>Your lab is <em>intentionally vulnerable</em>, so keep it contained</li>
+      <li>No default creds, no lab passwords reused anywhere real</li>
+      <li>Patch the infrastructure (hypervisor, firewall) even if the targets stay vulnerable</li>
+      <li>Only attack what you own or have <strong>written permission</strong> to test</li>
+      <li>Don't put work data in your homelab</li>
+    </ul>
+  </section>
+
+  <!-- 14 ─ Start this weekend -->
+  <section>
+    <h2>Start this weekend</h2>
+    <ol class="steps">
+      <li>Install VirtualBox or Proxmox on whatever hardware you have</li>
+      <li>Build one Linux VM and one Windows VM</li>
+      <li>Put a firewall VM in front of them on an isolated network</li>
+      <li>Break something on purpose. Fix it. Write it up</li>
+      <li>Repeat, adding one new thing each time</li>
+    </ol>
+    <aside class="notes">Leave them with a concrete first step.</aside>
+  </section>
+
+  <!-- 15 ─ Resources -->
+  <section class="resources">
+    <h2>Resources</h2>
+    <div class="link-cols">
+      <div>
+        <h3>Platforms</h3>
+        <ul>
+          <li><a href="https://www.proxmox.com/">Proxmox VE</a></li>
+          <li><a href="https://xcp-ng.org/">XCP-ng</a></li>
+          <li><a href="https://opnsense.org/">OPNsense</a></li>
+          <li><a href="https://www.pfsense.org/">pfSense</a></li>
+          <li><a href="https://www.wireguard.com/">WireGuard</a></li>
+          <li><a href="https://tailscale.com/">Tailscale</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Security labs</h3>
+        <ul>
+          <li><a href="https://github.com/Orange-Cyberdefense/GOAD">GOAD</a></li>
+          <li><a href="https://wazuh.com/">Wazuh</a></li>
+          <li><a href="https://securityonion.net/">Security Onion</a></li>
+          <li><a href="https://github.com/mandiant/flare-vm">FLARE-VM</a></li>
+          <li><a href="https://remnux.org/">REMnux</a></li>
+          <li><a href="https://www.vulnhub.com/">VulnHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Community &amp; practice</h3>
+        <ul>
+          <li><a href="https://www.reddit.com/r/homelab/">r/homelab</a></li>
+          <li><a href="https://www.reddit.com/r/selfhosted/">r/selfhosted</a></li>
+          <li><a href="https://tryhackme.com/">TryHackMe</a></li>
+          <li><a href="https://www.hackthebox.com/">Hack The Box</a></li>
+          <li><a href="https://github.com/kevinsays">My GH: github.com/kevinsays</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15b ─ Closing statement -->
+  <section class="statement">
+    <p><strong>If it's not Broken, you are still in your <span class="accent nowrap">safety-zone!</span></strong></p>
+  </section>
+
+  <!-- 16 ─ Thanks -->
+  <section class="thanks">
+    <h2>Thanks! Questions?</h2>
+    <div class="thanks-grid">
+      <div class="qr-wrap">
+        <img id="qr" src="qr.png" alt="QR code linking to this page" width="300" height="300">
+        <p class="qr-missing todo">TODO: generate qr.png (see README)</p>
+      </div>
+      <div>
+        <p class="url"><a href="https://kevinsays.github.io/homelab-talk/">kevinsays.github.io/homelab-talk</a></p>
+        <p>Zan · Instructor, MCTC</p>
+        <p class="muted">The book: currently in the "talking about it" phase.</p>
+        <ul class="contact">
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/zan-dick-245038121">linkedin.com/in/zan-dick-245038121</a></li>
+          <li>GitHub: <a href="https://github.com/kevinsays">github.com/kevinsays</a></li>
+        </ul>
+        <p class="muted">Slides and every link are on this page.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="hud" aria-hidden="true"><span id="counter"></span></div>
+<div class="progress" aria-hidden="true"><div id="progress-bar"></div></div>
+
+<script src="slides.js"></script>
+</body>
+</html>
