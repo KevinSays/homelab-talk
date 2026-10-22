@@ -136,6 +136,7 @@ img { max-width: 100%; height: auto; }
   border-radius: 0.4em; border: 1px solid var(--border);
 }
 .photo.hero img, .photo.hero .ph { aspect-ratio: 16 / 9; }
+.photo.hero.four-three img, .photo.hero.four-three .ph { aspect-ratio: 4 / 3; }
 .photo .ph {
   display: none;
   align-items: center; justify-content: center; text-align: center;
