@@ -237,6 +237,8 @@ img { max-width: 100%; height: auto; }
 .present .qr-wrap img { width: 12em; height: 12em; }
 .present .statement p { font-size: 2.6em; }
 .present .photos { grid-template-columns: repeat(3, 1fr); }
+.present .photos.tall { gap: 0.6em; }
+.present .photos.tall img, .present .photos.tall .ph { aspect-ratio: 1 / 1; }
 .present .photos.two { grid-template-columns: repeat(2, 1fr); width: 80%; margin: 0 auto; }
 .present .photo.hero { align-self: center; }
 .present .photo.hero img, .present .photo.hero .ph { width: auto; height: 16em; }
