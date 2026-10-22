@@ -57,6 +57,14 @@ h1, h2, h3 { font-family: var(--mono); line-height: 1.2; margin: 0 0 0.6em; }
 h1 { font-size: 2.2em; }
 h2 { font-size: 1.7em; color: var(--accent); }
 h3 { font-size: 1.05em; }
+h2::before { content: "$ "; content: "$ " / ""; color: var(--muted); }
+.title-slide h1::after {
+  content: "█"; content: "█" / "";
+  color: var(--accent); margin-left: 0.15em;
+  animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .title-slide h1::after { animation: none; } }
 p { margin: 0 0 0.8em; }
 ul, ol { margin: 0 0 0.8em; padding-left: 1.3em; }
 li { margin: 0.3em 0; }
@@ -68,7 +76,6 @@ img { max-width: 100%; height: auto; }
 .small { font-size: 0.85em; }
 .lead { font-size: 1.25em; }
 .kicker { font-family: var(--mono); color: var(--muted); }
-.prompt { color: var(--muted); }
 .byline { font-size: 1.2em; }
 
 .todo {
